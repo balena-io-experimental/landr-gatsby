@@ -1,0 +1,25 @@
+
+import React from 'react';
+import analytics from './lib/analytics';
+import Layout from './lib/Layout';
+{{#each combination}}
+import {{this.component}} from './lib/components/{{this.component}}';
+{{/each}}
+
+const Renderer = ({pageContext}) => {
+  const combination = pageContext.combination;
+  const analyticsOptions = pageContext.analytics;
+  return (
+      <Layout>
+      {{#each combination}}
+      <{{this.component}}
+        {...combination[{{@index}}].options}
+        config={pageContext.landrConfig}
+        analytics={analytics(pageContext.site, analyticsOptions)}
+      />
+      {{/each}}
+    </Layout>
+  );
+}
+
+export default Renderer;

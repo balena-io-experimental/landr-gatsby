@@ -1,0 +1,12 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+{{#each metadata.data.contributors}}
+https://github.com/{{this.username}}
+{{/each}}
+
+# TECHNOLOGY COLOPHON
+
+React, React Static, Rendition, Landr
